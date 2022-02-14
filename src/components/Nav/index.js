@@ -17,6 +17,7 @@ function Nav(props) {
   return (
     <header className="flex-row px-1">
       <h2>
+        {/* another datatest id */}
         <a data-testid="link" href="/">
           <span role="img" aria-label="camera"> 📸</span> Oh Snap!
         </a>
@@ -24,6 +25,7 @@ function Nav(props) {
       <nav>
         <ul className="flex-row">
           <li className="mx-2">
+            {/* datatest id = getByTestId */}
             <a data-testid="about" href="#about" onClick={() => setContactSelected(false)}>
               About me
             </a>
@@ -31,6 +33,7 @@ function Nav(props) {
           <li className={`mx-2 ${contactSelected && 'navActive'}`}>
             <span onClick={() => setContactSelected(true)}>Contact</span>
           </li>
+          {/* category map to not list every category */}
           {categories.map((category) => (
             <li
               className={`mx-1 ${

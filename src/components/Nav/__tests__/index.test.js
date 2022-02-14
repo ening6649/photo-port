@@ -40,6 +40,8 @@ describe('Nav component', () => {
 
 describe('emoji is visible', () => {
   it('inserts emoji into the h2', () => {
+    // Arrange
+  // Assert  
     const { getByLabelText } = render(<Nav
       categories={categories}
       setCurrentCategory={mockSetCurrentCategory}
@@ -54,6 +56,8 @@ describe('emoji is visible', () => {
 
 describe('links are visible', () => {
   it('inserts text into the home link', () => {
+    // Arrange
+    // Assert
     const { getByTestId } = render(<Nav
       categories={categories}
       setCurrentCategory={mockSetCurrentCategory}

@@ -3,6 +3,7 @@ import PhotoList from '../PhotoList';
 import { capitalizeFirstLetter } from '../../utils/helpers';
 
 function Gallery(props) {
+  // making currentCategory an object
   const { currentCategory } = props;
   return (
     <section>
