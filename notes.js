@@ -169,3 +169,5 @@ setFormState({...formState, [e.target.name]: e.target.value })
     </button>
   </div>
 </div>
+
+// closures enable access to the state of the modal parent component, Photolist.
