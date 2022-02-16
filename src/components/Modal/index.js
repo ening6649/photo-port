@@ -12,6 +12,7 @@ const Modal = ({ onClose, currentPhoto }) => {
           alt="current category"
         />
         <p>{description}</p>
+        {/* below closes the modal */}
         <button type="button" onClick={onClose}>
           Close this modal
         </button>

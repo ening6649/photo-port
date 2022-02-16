@@ -4,6 +4,7 @@ import Modal from '../Modal';
 // a child component of the gallery component
 // can also be const Photolist= (props)=>
 const PhotoList = ({ category }) => {
+  // this modal conditionally renders based on whether an image has been clicked
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState();
 
@@ -129,11 +130,15 @@ const PhotoList = ({ category }) => {
 
   const toggleModal = (image, i) => {
     setCurrentPhoto({ ...image, index: i });
+    // the isModalOpen is updated so that when the toggleModal function is executed, 
+    // .. the value of isModalOpen is toggled from true to false
     setIsModalOpen(!isModalOpen);
   };
 
   return (
     <div>
+      {/* the below passes currentPhoto as a prop to the Modal */}
+      {/* <Modal currentPhoto={currentPhoto}> */}
       {isModalOpen && (
         <Modal onClose={toggleModal} currentPhoto={currentPhoto} />
       )}
@@ -144,6 +149,8 @@ const PhotoList = ({ category }) => {
             src={require(`../../assets/small/${category}/${i}.jpg`).default}
             alt={image.name}
             className="img-thumbnail mx-1"
+            // image object represents the element in the photos array
+            // i , will render the image as in the src attribute with the require function
             onClick={() => toggleModal(image, i)}
             key={image.name}
           />
