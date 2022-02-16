@@ -9,7 +9,7 @@ function Nav(props) {
     currentCategory,
     setContactSelected,
   } = props;
-
+// useeffect example
   useEffect(() => {
     document.title = capitalizeFirstLetter(currentCategory.name);
   }, [currentCategory]);
@@ -37,6 +37,7 @@ function Nav(props) {
           {categories.map((category) => (
             <li
               className={`mx-1 ${
+                // as long as currentCat === cate, then the NavActive will be returned
                 currentCategory.name === category.name && !contactSelected && 'navActive'
                 }`}
               key={category.name}

@@ -88,6 +88,7 @@ function SomeComponent() {
     // first item is the value of your state, second is a setter
     // ..allows to set the state to something else 
     // these can be named whatever we want
+    // 0 refers to the initial state 
   const [seconds, setSeconds] = useState(0)
 
   function startStopwatch() {
@@ -95,6 +96,9 @@ function SomeComponent() {
     setInterval(() => {
       updatedSeconds += 1;
       console.log(updatedSeconds);
+    //   rather than using += to chanage seconds, use updated state as an argument
+    //  must use a new variable updatedSeconds to keep track of seconds in real time
+    // ..because setSeconds is asynch
       setSeconds(updatedSeconds);
     }, 1000);
   }
@@ -106,3 +110,48 @@ return (
   </div>
 )
 }
+
+// only call hooks from react functions
+// only call hoooks at the top lvl. cannot use them inside for loops
+// ..nested functions or conditionals 
+
+// because components are functions, we can pass in any type of argument we want. Rather than passing it 
+// ..in through parentheses, though, you need to pass them in as attributes on the component in JSX. 
+// ..This is JSX, so you can name those attributes whatever you want, without the need for the data- prefix. 
+// ..Then within the Child component, props is nothing more than the name of the parameter,
+// .. which you could change to be whatever you want.
+function App() {
+    return <Child somename="Lyza" ></Child>
+  }
+  
+function Child(props) {
+    return <div>{props.somename}</div>
+  }
+
+// document.title, which will change the tab's text content
+
+// The main difference between useEffect and useState is that useEffect
+// ..is an API that reflects the lifecycle methods of the component, 
+// ..such as when the component mounts, unmounts, or updates. 
+
+// htmlFor instead of For , className instead of class 
+
+// if form data is maintained by the state of the component , controlled component
+// ..otherwise uncontrolled 
+
+// assign value taken from the input field in the UI with e.target.value and assign
+// .. this value to the porperty formState.name
+// ...formState the spread operator to retain the other key-value pairs in this object
+// .. without which, the formState object would be overwritten to only contain the 
+// ..name:value key pair
+function handleChange(e) {
+    setFormState({...formState, name: e.target.value })
+  }
+  
+  console.log(formState);
+
+// make the property name a dynamic variable that s determined by the form element
+// .. so as to not create a different handleChange for email, message and name
+// e.target.name the name actually refers to the name attribute of the form element
+// .. and therefore matches the property names of all formState (name,email and message)
+setFormState({...formState, [e.target.name]: e.target.value })

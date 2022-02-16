@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Modal from '../Modal';
 
+// a child component of the gallery component
+// can also be const Photolist= (props)=>
 const PhotoList = ({ category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState();
@@ -122,6 +124,7 @@ const PhotoList = ({ category }) => {
     }
   ]);
 
+  // so only photos with the selected category appear
   const currentPhotos = photos.filter(photo => photo.category === category);
 
   const toggleModal = (image, i) => {
@@ -137,6 +140,7 @@ const PhotoList = ({ category }) => {
       <div className="flex-row">
         {currentPhotos.map((image, i) => (
           <img
+          // The default property is where the image has been saved. To render the image, the default property must be invoked.
             src={require(`../../assets/small/${category}/${i}.jpg`).default}
             alt={image.name}
             className="img-thumbnail mx-1"

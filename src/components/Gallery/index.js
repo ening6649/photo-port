@@ -9,6 +9,7 @@ function Gallery(props) {
     <section>
       <h1 data-testid="h1tag">{capitalizeFirstLetter(currentCategory.name)}</h1>
       <p>{currentCategory.description}</p>
+      {/* for category template literal to work in photolist */}
       <PhotoList category={currentCategory.name} />
     </section>
   );

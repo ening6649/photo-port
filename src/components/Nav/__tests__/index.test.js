@@ -7,6 +7,8 @@ import Nav from '..';
 const categories = [
   { name: 'portraits', description: 'Portraits of people in my life' }
 ]
+// in order to handle props for the nav 
+// ..need to add categories array and mock functions
 const mockCurrentCategory = jest.fn();
 const mockSetCurrentCategory = jest.fn();
 const mockContactSelected = jest.fn();

@@ -16,7 +16,7 @@ function App() {
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
-
+  // setting to false prevent contact form from showing on the homepage, gallery will display instead
   const [contactSelected, setContactSelected] = useState(false);
 
   return (
@@ -29,8 +29,18 @@ function App() {
         setContactSelected={setContactSelected}
       ></Nav>
       <main>
+        {/* same as if(!contactSelected) {
+        <>
+          <Gallery currentCategory={currentCategory}></Gallery>
+          <About></About>
+        </> 
+        } else {
+        <ContactForm></ContactForm>
+        } */}
+        {/* ? and : are called ternary operator, similar to && but spply the false condition as well */}
         {!contactSelected ? (
           <>
+          {/* <> called react fragments shorthand for <React.Fragment> */}
             <Gallery currentCategory={currentCategory}></Gallery>
             <About></About>
           </>

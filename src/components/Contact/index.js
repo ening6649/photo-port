@@ -31,6 +31,7 @@ function ContactForm() {
       }
     }
     if (!errorMessage) {
+      // allows the state to update with user input if there is no error 
       setFormState({ ...formState, [e.target.name]: e.target.value });
       console.log('Handle Form', formState);
     }
@@ -42,16 +43,24 @@ function ContactForm() {
       <form id="contact-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
+          {/* default assigns the initial state values to the input fields */}
           <input type="text" name="name" defaultValue={name} onBlur={handleChange} />
         </div>
         <div>
           <label htmlFor="email">Email address:</label>
+          {/* onBlur will allow the user to finish typing before error message trigger. on change will not */}
           <input type="email" name="email" defaultValue={email} onBlur={handleChange} />
         </div>
         <div>
           <label htmlFor="message">Message:</label>
           <textarea name="message" rows="5" defaultValue={message} onBlur={handleChange} />
         </div>
+        {/* same as  if(errorMessage) {
+          <div>
+          <p className="error-text">{errorMessage}</p>
+          </div>
+        }*/}
+        {/* shortcircuit with && , if first value resolves to true, then second expression is evaluated */}
         {errorMessage && (
           <div>
             <p className="error-text">{errorMessage}</p>
